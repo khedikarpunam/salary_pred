@@ -39,9 +39,15 @@ st.write('Enter the details below to predict the salary.')
 input_data = {}
 
 for col in categorical_cols:
-    options = original_df[col].unique().tolist()
-    options.sort() # Sort options for better UI
-    selected_value = st.selectbox(f'Select {col.replace('_', ' ')}', options)
+    options = original_df[col].dropna().unique().tolist()
+    options = [str(x) for x in options]   # ensure all are strings
+    options.sort()
+
+    selected_value = st.selectbox(
+        f"Select {col.replace('_', ' ')}",
+        options
+    )
+
     input_data[col] = selected_value
 
 input_data['Salaries Reported'] = st.number_input('Number of Salaries Reported', min_value=1, value=1)
