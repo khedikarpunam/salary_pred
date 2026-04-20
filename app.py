@@ -13,7 +13,7 @@ model = joblib.load('best_model.pkl')
 # Load the original dataset to fit LabelEncoders
 # Assuming the original 'Salary_Dataset_DataScienceLovers.csv' is available
 try:
-    original_df = pd.read_csv('/content/Salary_Dataset_DataScienceLovers.csv')
+    original_df = pd.read_csv('Salary_Dataset.csv')
 except FileNotFoundError:
     st.error("Original dataset 'Salary_Dataset_DataScienceLovers.csv' not found. Please ensure it's in the /content directory.")
     st.stop()
