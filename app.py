@@ -15,7 +15,7 @@ model = joblib.load('best_model.pkl')
 try:
     original_df = pd.read_csv('Salary_Dataset.csv')
 except FileNotFoundError:
-    st.error("Original dataset 'Salary_Dataset_DataScienceLovers.csv' not found. Please ensure it's in the /content directory.")
+    st.error("Original dataset 'Salary_Dataset.csv' not found. Please ensure it's in the /content directory.")
     st.stop()
 
 # Define the categorical columns that were encoded
